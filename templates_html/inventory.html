@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario - InventoryPro</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/inventory.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 flex flex-col min-h-screen">
+    <header class="header-blue">
+        <div class="flex items-center gap-8">
+            <h1 class="text-xl font-bold">Gestión de Lista de Inventario</h1>
+            <nav class="flex items-center gap-6">
+                <a href="dashboard.html" class="nav-link-white">Panel de Control</a>
+                <a href="orders.html" class="nav-link-white">Pedidos</a>
+                <a href="reports.html" class="nav-link-white">Informes</a>
+                <a href="settings.html" class="nav-link-white">Configuración</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-4">
+            <i data-lucide="bell" class="w-5 h-5"></i>
+            <div class="user-avatar-small"><i data-lucide="user" class="w-4 h-4"></i></div>
+        </div>
+    </header>
+
+    <main class="flex-1 p-8 max-w-7xl mx-auto w-full space-y-6">
+        <div class="flex items-center justify-between">
+            <div class="flex flex-1 gap-4">
+                <div class="relative flex-1" style="max-width: 400px;">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
+                    <input type="text" placeholder="Buscar productos..." class="input-field">
+                </div>
+                <button class="btn-outline">
+                    Filtrar por Categoría <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </button>
+            </div>
+            <button class="btn-primary-blue" style="width: auto; padding: 0.75rem 1.5rem;">
+                <i data-lucide="plus" class="w-5 h-5"></i> Añadir Nuevo Producto
+            </button>
+        </div>
+
+        <div class="data-table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Producto</th><th>SKU</th><th>Categoría</th><th>Existencias</th><th>Precio</th><th>Estado</th><th style="text-align: center;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="flex items-center gap-3">
+                            <div class="product-img-placeholder"></div>
+                            <span class="text-sm font-bold">Logitech MX Master 3S</span>
+                        </td>
+                        <td><code class="sku-code">LGT-MXM3S-BLK</code></td>
+                        <td class="text-sm">Electrónica</td>
+                        <td class="text-sm">145</td>
+                        <td class="text-sm font-bold">$99.99</td>
+                        <td><span class="badge badge-success">En Stock</span></td>
+                        <td style="text-align: center;">
+                            <button class="btn-action">Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

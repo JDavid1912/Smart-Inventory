@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informes - InventoryPro</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-50 flex min-h-screen">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo-box"><i data-lucide="package" class="w-6 h-6 text-white"></i></div>
+            <span class="text-xl font-display font-bold text-white">InventoryPro</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Panel de Control</a>
+            <a href="inventory.html" class="nav-item"><i data-lucide="package"></i> Inventario</a>
+            <a href="orders.html" class="nav-item"><i data-lucide="shopping-cart"></i> Pedidos</a>
+            <a href="reports.html" class="nav-item active"><i data-lucide="bar-chart-3"></i> Informes</a>
+            <a href="settings.html" class="nav-item"><i data-lucide="settings"></i> Configuración</a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto">
+        <header class="header">
+            <h1 class="text-2xl font-display font-bold text-slate-900">Análisis e Informes</h1>
+            <div class="flex items-center gap-4">
+                <button class="btn-outline">
+                    <i data-lucide="calendar" class="w-4 h-4"></i> Últimos 6 Meses
+                </button>
+                <button class="btn-primary-blue" style="width: auto; padding: 0.625rem 1.5rem;">
+                    <i data-lucide="download" class="w-4 h-4"></i> Descargar Informe
+                </button>
+            </div>
+        </header>
+
+        <div class="p-8 space-y-8">
+            <div class="grid grid-cols-3 gap-6">
+                <div class="stat-card flex-col items-start gap-4">
+                    <p class="text-sm font-medium text-slate-500">Ingresos Totales</p>
+                    <div class="flex items-end justify-between w-full">
+                        <h4 class="text-3xl font-bold text-slate-900">$328,000</h4>
+                        <div class="badge badge-success">+12.5%</div>
+                    </div>
+                    <p class="text-xs text-slate-400">vs. 6 meses anteriores</p>
+                </div>
+                <div class="stat-card flex-col items-start gap-4">
+                    <p class="text-sm font-medium text-slate-500">Beneficio Bruto</p>
+                    <div class="flex items-end justify-between w-full">
+                        <h4 class="text-3xl font-bold text-slate-900">$91,000</h4>
+                        <div class="badge badge-success">+8.2%</div>
+                    </div>
+                    <p class="text-xs text-slate-400">vs. 6 meses anteriores</p>
+                </div>
+                <div class="stat-card flex-col items-start gap-4">
+                    <p class="text-sm font-medium text-slate-500">Rotación de Inventario</p>
+                    <div class="flex items-end justify-between w-full">
+                        <h4 class="text-3xl font-bold text-slate-900">4.2x</h4>
+                        <div class="badge badge-danger">-2.1%</div>
+                    </div>
+                    <p class="text-xs text-slate-400">vs. 6 meses anteriores</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-8">
+                <div class="chart-container" style="grid-column: span 2;">
+                    <h3 class="text-lg font-bold text-slate-900 mb-8">Ingresos vs Beneficio</h3>
+                    <div style="height: 320px;">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3 class="text-lg font-bold text-slate-900 mb-8">Inventario por Categoría</h3>
+                    <div style="height: 256px;">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Revenue Chart
+        const revCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+                datasets: [
+                    {
+                        label: 'Ingresos',
+                        data: [45000, 52000, 48000, 61000, 55000, 67000],
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 4
+                    },
+                    {
+                        label: 'Beneficio',
+                        data: [12000, 15000, 11000, 18000, 14000, 21000],
+                        backgroundColor: '#6366f1',
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { y: { beginAtZero: true, grid: { display: false } }, x: { grid: { display: false } } }
+            }
+        });
+
+        // Category Chart
+        const catCtx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(catCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Electrónica', 'Muebles', 'Oficina', 'Ferretería'],
+                datasets: [{
+                    data: [45, 25, 20, 10],
+                    backgroundColor: ['#3b82f6', '#6366f1', '#0ea5e9', '#94a3b8']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+    </script>
+</body>
+</html>

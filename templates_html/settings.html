@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - InventoryPro</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 flex min-h-screen">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo-box"><i data-lucide="package" class="w-6 h-6 text-white"></i></div>
+            <span class="text-xl font-display font-bold text-white">InventoryPro</span>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Panel de Control</a>
+            <a href="inventory.html" class="nav-item"><i data-lucide="package"></i> Inventario</a>
+            <a href="orders.html" class="nav-item"><i data-lucide="shopping-cart"></i> Pedidos</a>
+            <a href="reports.html" class="nav-item"><i data-lucide="bar-chart-3"></i> Informes</a>
+            <a href="settings.html" class="nav-item active"><i data-lucide="settings"></i> Configuración</a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto">
+        <header class="header">
+            <h1 class="text-2xl font-display font-bold text-slate-900">Configuración</h1>
+            <button class="btn-primary-blue" style="width: auto; padding: 0.625rem 1.5rem;">
+                <i data-lucide="save" class="w-4 h-4"></i> Guardar Cambios
+            </button>
+        </header>
+
+        <div class="p-8 max-w-4xl">
+            <div class="settings-card flex">
+                <div class="settings-sidebar">
+                    <div class="settings-nav-item active">
+                        <i data-lucide="user" class="w-5 h-5"></i><span class="text-sm font-bold">Perfil</span>
+                    </div>
+                    <div class="settings-nav-item">
+                        <i data-lucide="bell" class="w-5 h-5"></i><span class="text-sm font-bold">Notificaciones</span>
+                    </div>
+                </div>
+
+                <div class="flex-1 p-8 space-y-8">
+                    <div class="flex items-center gap-6">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200" class="profile-img-large">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900">Alex Johnson</h3>
+                            <p class="text-slate-500">Administrador</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-slate-700">Nombre Completo</label>
+                            <input type="text" value="Alex Johnson" class="input-field">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-slate-700">Correo</label>
+                            <input type="email" value="alex@smartinventory.com" class="input-field">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* dashboard.css - Tarjetas y Gráficos */
+.stat-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.stat-icon-container {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+}
+
+.alert-banner {
+    background-color: #eff6ff;
+    border: 1px solid #dbeafe;
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.chart-container {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.settings-card {
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.settings-sidebar {
+    width: 240px;
+    border-right: 1px solid var(--border-color);
+    padding: 1rem;
+    background-color: #f8fafc;
+}
+
+.settings-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 0.25rem;
+}
+
+.settings-nav-item:hover {
+    background-color: #f1f5f9;
+    color: var(--text-main);
+}
+
+.settings-nav-item.active {
+    background-color: #eff6ff;
+    color: var(--brand-secondary);
+}
+
+.profile-img-large {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 1rem;
+    object-fit: cover;
+    border: 4px solid #f8fafc;
+}
